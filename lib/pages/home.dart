@@ -8,15 +8,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Map _data = {};
+  Map data = {};
 
   @override
   Widget build(BuildContext context) {
-    _data = (ModalRoute.of(context)?.settings.arguments ?? <String, dynamic>{})
+    data = (ModalRoute.of(context)?.settings.arguments ?? <String, dynamic>{})
         as Map;
 
-    String bgImage = _data["isDaytime"] ? "day.png" : "night.png";
-    Color? bgColor = _data["isDaytime"] ? Colors.blue : Colors.indigo[700];
+    String bgImage = data["isDaytime"] ? "day.png" : "night.png";
+    Color? bgColor = data["isDaytime"] ? Colors.blue : Colors.indigo[700];
     return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    _data["location"],
+                    data["location"],
                     style: const TextStyle(
                         fontSize: 28.0,
                         letterSpacing: 2.0,
@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 20.0),
               Text(
-                _data["time"],
+                data["time"],
                 style: const TextStyle(fontSize: 66.0, color: Colors.white),
               )
             ],
